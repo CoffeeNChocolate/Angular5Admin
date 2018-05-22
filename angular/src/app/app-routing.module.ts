@@ -16,6 +16,7 @@ import { ListComponent } from './pages/ui/list/list.component';
 import { IconsComponent } from './pages/ui/icons/icons.component';
 import { ButtonsComponent } from './pages/ui/buttons/buttons.component';
 import { TablesComponent } from './pages/tables/tables.component';
+import { VendorComponent } from './pages/vendor/vendor.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -31,6 +32,11 @@ const routes: Routes = [
                 path: "table",
                 component: TablesComponent
             },
+            {
+                path: "vendor",
+                component: VendorComponent
+            },
+           
            
            
         ]

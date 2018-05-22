@@ -12,12 +12,14 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
+import { VendorComponent } from './pages/vendor/vendor.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TablesComponent
+    TablesComponent,
+    VendorComponent
   ],
   imports: [
     BrowserModule,
