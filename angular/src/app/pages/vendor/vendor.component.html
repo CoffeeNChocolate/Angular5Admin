@@ -24,7 +24,7 @@
                             Name
                         </div>
                         <div>
-                                {{vendorDetails.name}}
+                            {{vendorDetails.name}}
                         </div>
                     </div>
                     <div class="col-4">
@@ -32,7 +32,7 @@
                             Type
                         </div>
                         <div>
-                                {{vendorDetails.type}}
+                            {{vendorDetails.type}}
                         </div>
                     </div>
 
@@ -55,37 +55,64 @@
 
                 </div>
                 <div class="row">
-                        <div class="col-4">
-                                <div> address1
-                                    <div> {{vendorDetails.address1}}</div>
-                                </div>
-                            </div>
-                        <div class="col-4">
-                                <div> address2
-                                    <div> {{vendorDetails.address2}}</div>
-                                </div>
-                            </div>
-                        <div class="col-4">
-                            <div> city </div>
-                            <div> {{vendorDetails.city}} </div>
+                    <div class="col-4">
+                        <div> address1
+                            <div> {{vendorDetails.address1}}</div>
                         </div>
                     </div>
-                    <div class="row">
-                            <div class="col-4">
-                                    <div> Contract Id
-                                        <div> {{vendorDetails.contractId}}</div>
-                                    </div>
-                                </div>
-                            <div class="col-4">
-                                    <div> Contract Date
-                                        <div> {{vendorDetails.contractDate}}</div>
-                                    </div>
-                                </div>
-                            <div class="col-4">
-                                <div> Registration Type </div>
-                                <div> {{vendorDetails.registrationType}} </div>
-                            </div>
+                    <div class="col-4">
+                        <div> address2
+                            <div> {{vendorDetails.address2}}</div>
                         </div>
+                    </div>
+                    <div class="col-4">
+                        <div> city </div>
+                        <div> {{vendorDetails.city}} </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div> Contract Id
+                            <div> {{vendorDetails.contractId}}</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div> Contract Date
+                            <div> {{vendorDetails.contractDate}}</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div> Registration Type </div>
+                        <div> {{vendorDetails.registrationType}} </div>
+                    </div>
+                </div>
+                <div class="row pull-right">
+                    <div class="col-1">
+                        <a  class="no-btn-border" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

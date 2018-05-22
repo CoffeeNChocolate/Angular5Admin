@@ -5,6 +5,7 @@ import { VendorInformation } from "./vendor";
 @Component({
     selector: 'app-vendor',
     templateUrl: './vendor.component.html',
+    styleUrls: ['./vendor.component.css'],
     providers: [VendorService]
 })
 export class VendorComponent {
