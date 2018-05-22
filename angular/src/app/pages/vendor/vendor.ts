@@ -10,5 +10,7 @@ export interface VendorInformation {
     mobile: string;
     contractId: string;
     contractDate: string;
-    registrationType:number
+    registrationType: number,
+    referDetails: string
+
 }

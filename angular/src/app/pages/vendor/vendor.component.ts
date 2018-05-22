@@ -16,29 +16,29 @@ export class VendorComponent {
     constructor(private vendorService: VendorService) {//
     }
     ngOnInit() {
-        this.vendorService.getCarsSmall().then(x => {
+        this.vendorService.getVendorInformation().then(x => {
             this.vendorDetails = new VendorDetails(
                 x.vendor.vendorId, x.vendor.name, x.vendor.type, x.vendor.zip,
                 x.vendor.city, x.vendor.address2, x.vendor.address1, x.vendor.phone,
-                x.vendor.mobile, x.vendor.contractId, x.vendor.contractDate, x.vendor.registrationType
+                x.vendor.mobile, x.vendor.contractId, x.vendor.contractDate, x.vendor.registrationType, x.vendor.referDetails
             );
             console.log("vednors  details", this.vendorDetails);
         });
-        console.log("sdf", this.vendorService.getCarsSmall().then(x => {
-            this.vendors = x.vendor;
-            console.log(this.vendors);
-        }));
-
     }
-    getVendorInformation() {
-        //
+    get hasVendorDetails(): boolean {
+        return (this.vendorDetails !== null) ? true : false;
+    }
+    saveVendorInformation(data: VendorDetails) {
+        var res = this.vendorService.saveVendorInformation(data);
+        console.log(res);
     }
 
 }
 export class VendorDetails implements VendorInformation {
 
     constructor(public vendorId: string, public name: string, public type: string, public zip: string, public city: string,
-        public address2: string, public address1: string, public phone: string, public mobile: string, public contractId: string, public contractDate: string,
-        public registrationType: number
+        public address2: string, public address1: string, public phone: string,
+        public mobile: string, public contractId: string, public contractDate: string,
+        public registrationType: number, public referDetails: string
     ) { }
 }

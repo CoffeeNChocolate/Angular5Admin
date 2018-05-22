@@ -9,7 +9,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ibox-body">
+            <div class="ibox-body" *ngIf="hasVendorDetails">
                 <div class="row">
                     <div class="col-4">
                         <div>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="row pull-right">
                     <div class="col-1">
-                        <a  class="no-btn-border" data-toggle="modal" data-target="#exampleModal">
+                        <a class="no-btn-border" data-toggle="modal" data-target="#exampleModal">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -102,18 +102,75 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Vendor Information</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Name</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.name" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Type</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.type" name="type" placeholder="Type">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" [(ngModel)]="vendorDetails.address1" name="address1" id="inputAddress" placeholder="Address">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Address 2</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.address2" name="address2" placeholder="address2">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">City</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.city" name="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Mobile</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.mobile" name="mobile" placeholder="Mobile">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Phone</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.phone" name="phone" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Contract Id</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.contractId" name="contractId" placeholder="Contract Id">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Contract Date</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.contractDate" name="contractDate" placeholder="Contract Date">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Registration Type</label>
+                            <input type="input" class="form-control" [(ngModel)]="vendorDetails.registrationType" name="registrationType" placeholder="Registration Type">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="inputEmail4">Refer Details</label>
+                        <input type="input" class="form-control" [(ngModel)]="vendorDetails.referDetails" name="referDetails" placeholder="refer Details ">
+                    </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" (click)="saveVendorInformation(vendorDetails)" class="btn btn-primary">Save changes</button>
         </div>
     </div>
+</div>
 </div>
