@@ -13,6 +13,11 @@ export class VendorComponent {
     vendorInformation: VendorInformation;
     vendorDetails: VendorDetails;
     vendors: any;
+    display: boolean = false;
+
+    showDialog() {
+        this.display = true;
+    }
     constructor(private vendorService: VendorService) {//
     }
     ngOnInit() {
@@ -29,6 +34,7 @@ export class VendorComponent {
         return (this.vendorDetails !== null) ? true : false;
     }
     saveVendorInformation(data: VendorDetails) {
+        this.display = false;
         var res = this.vendorService.saveVendorInformation(data);
         console.log(res);
     }

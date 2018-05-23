@@ -1,0 +1,103 @@
+<p-table [columns]="cols" [value]="orderDetails" dataKey="orderId">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width: 2.25em"></th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+        <tr>
+            <td>
+                <a href="#" [pRowToggler]="rowData">
+                    <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+                </a>
+            </td>
+            <td *ngFor="let col of cols">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+        <tr>
+            <td [attr.colspan]="columns.length + 1">
+                <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+
+                    <div class="ui-g-12 ui-md-9">
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <b>Order Id:</b> {{rowData.orderId}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Order Type:</b> {{rowData.orderType}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Order Sub Type:</b> {{rowData.orderSubType}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Order Quantity:</b> {{rowData.orderQuantity}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Order Date:</b> {{rowData.orderDate}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Order Time:</b> {{rowData.orderTime}}
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row pull-right">
+                    <div class="col-1">
+                        <button type="text" (click)="showDialog(rowData)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </div>
+
+                    <p-dialog header="Order Information" [(visible)]="display">
+
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Order Id</label>
+                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.orderId" name="orderId" placeholder="Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Type</label>
+                                    <input type="input" class="form-control" [(ngModel)]="rowData.orderType" name="orderType" placeholder="Type">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Order Sub Type</label>
+                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.orderSubType" name="orderSubType" placeholder="Sub Type">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Quantity</label>
+                                    <input type="input" class="form-control" [(ngModel)]="rowData.orderQuantity" name="orderQuantity" placeholder="Quantity">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Order Date</label>
+                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.orderDate" name="orderDate" placeholder="Date">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Order Time</label>
+                                    <input type="input" class="form-control" [(ngModel)]="rowData.orderTime" name="orderTime" placeholder="Time">
+                                </div>
+                            </div>
+                        </form>
+                        <p-footer>
+                            <button type="button" pButton icon="fa-check" (click)="saveOrderInformation(rowData)" label="Yes"></button>
+                            <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+                        </p-footer>
+
+                    </p-dialog>>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

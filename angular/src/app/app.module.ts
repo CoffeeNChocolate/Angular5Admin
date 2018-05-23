@@ -13,13 +13,16 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { VendorComponent } from './pages/vendor/vendor.component';
+import { OrderComponent } from './pages/orders/order.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TablesComponent,
-    VendorComponent
+    VendorComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { VendorComponent } from './pages/vendor/vendor.component';
     HttpClientModule,
     InputTextModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [ScriptLoaderService],
   bootstrap: [AppComponent]
