@@ -34,7 +34,8 @@ export class OrderComponent implements OnInit {
 
     }
     saveOrderInformation(orders: any): void {
-        console.log("called",orders);
+        this.display = false;
+        console.log("called", orders);
     }
 
 }

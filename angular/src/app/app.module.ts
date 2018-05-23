@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { VendorComponent } from './pages/vendor/vendor.component';
 import { OrderComponent } from './pages/orders/order.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotesComponent } from './pages/notes/notes.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     TablesComponent,
     VendorComponent,
-    OrderComponent
+    OrderComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,

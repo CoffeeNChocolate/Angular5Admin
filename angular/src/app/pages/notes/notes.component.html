@@ -1,0 +1,103 @@
+<p-table [columns]="cols" [value]="noteDetails" dataKey="orderId">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width: 2.25em"></th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+        <tr>
+            <td>
+                <a href="#" [pRowToggler]="rowData">
+                    <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+                </a>
+            </td>
+            <td *ngFor="let col of cols">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+        <tr>
+            <td [attr.colspan]="columns.length + 1">
+                <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+
+                    <div class="ui-g-12 ui-md-9">
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <b>Note Id:</b> {{rowData.notesId}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Created By:</b> {{rowData.createdBy}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Created On:</b> {{rowData.createdOn}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Modified By:</b> {{rowData.modifiedBy}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Modified On:</b> {{rowData.modifiedOn}}
+                            </div>
+                            <div class="ui-g-12">
+                                <b>Notes:</b> {{rowData.notes}}
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row pull-right">
+                    <div class="col-1">
+                        <button type="text" (click)="showDialog(rowData)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </div>
+
+                    <p-dialog header="Order Information" [(visible)]="display">
+
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Order Id</label>
+                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.notesId" name="notesId" placeholder="Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Type</label>
+                                    <input type="input" class="form-control" [(ngModel)]="rowData.createdBy" name="createdBy" placeholder="Type">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Order Sub Type</label>
+                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.createdOn" name="createdOn" placeholder="Sub Type">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Quantity</label>
+                                    <input type="input" class="form-control" [(ngModel)]="rowData.modifiedBy" name="modifiedBy" placeholder="Quantity">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Order Date</label>
+                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.modifiedOn" name="modifiedOn" placeholder="Date">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Order Time</label>
+                                    <input type="input" class="form-control" [(ngModel)]="rowData.notes" name="notes" placeholder="Time">
+                                </div>
+                            </div>
+                        </form>
+                        <p-footer>
+                            <button type="button" pButton icon="fa-check" (click)="saveOrderInformation(rowData)" label="Yes"></button>
+                            <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+                        </p-footer>
+
+                    </p-dialog>>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
