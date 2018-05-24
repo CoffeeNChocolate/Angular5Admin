@@ -71,21 +71,21 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Order Sub Type</label>
-                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.createdOn" name="createdOn" placeholder="Sub Type">
+                                    <label for="inputEmail4">Created On</label>
+                                    <p-calendar [(ngModel)]="createdOn" name="createdOn" [showIcon]="true"></p-calendar>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Quantity</label>
+                                    <label for="inputPassword4">modified By</label>
                                     <input type="input" class="form-control" [(ngModel)]="rowData.modifiedBy" name="modifiedBy" placeholder="Quantity">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Order Date</label>
-                                    <input type="input" class="form-control" readonly [(ngModel)]="rowData.modifiedOn" name="modifiedOn" placeholder="Date">
+                                    <label for="inputEmail4">Modified On</label>
+                                    <p-calendar [(ngModel)]="modifiedOn" name="createdOn" [showIcon]="true"></p-calendar>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Order Time</label>
+                                    <label for="inputPassword4">Notes</label>
                                     <input type="input" class="form-control" [(ngModel)]="rowData.notes" name="notes" placeholder="Time">
                                 </div>
                             </div>

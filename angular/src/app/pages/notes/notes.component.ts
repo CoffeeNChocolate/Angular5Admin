@@ -12,6 +12,8 @@ export class NotesComponent implements OnInit {
     cols: any[];
     noteDetails: Array<NotesDetails> = [];
     display: boolean = false;
+    createdOn: Date;
+    modifiedOn: Date;
     @Input()
     notes: NotesDetails;
 
@@ -33,9 +35,11 @@ export class NotesComponent implements OnInit {
         ];
 
     }
-    saveOrderInformation(orders: any): void {
+    saveOrderInformation(notes: any): void {
         this.display = false;
-        console.log("called", orders);
+        notes.createdOn = this.createdOn;
+        notes.modifiedOn = this.modifiedOn;
+        console.log("called", notes);
     }
 
 }

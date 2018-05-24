@@ -21,7 +21,7 @@
         {
             "notesId": 632,
             "createdBy": "Admin",
-            "createdOn": "2017-09-24",
+            "createdOn": "2013-10-21T13:28:06.419Z",
             "modifiedBy": "Admin",
             "modifiedOn": "2017-09-24",
             "notes": "Update test"
@@ -45,11 +45,11 @@
     "checklist": {
         "checklistid": 1,
         "chipsVendorId": 99,
-        "active": "T",
+        "active": true,
         "activeDate": "2007-04-10",
-        "billsDue": "T",
+        "billsDue": true,
         "billsDueDate": "2007-02-01",
-        "request": "T",
+        "request": true,
         "requestdate": "2007-06-20"
     }
 }

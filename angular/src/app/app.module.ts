@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { CalendarModule } from 'primeng/calendar';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { VendorComponent } from './pages/vendor/vendor.component';
 import { OrderComponent } from './pages/orders/order.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotesComponent } from './pages/notes/notes.component';
+import { CheckListComponent } from './pages/checkList/check-list.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { NotesComponent } from './pages/notes/notes.component';
     TablesComponent,
     VendorComponent,
     OrderComponent,
-    NotesComponent
+    NotesComponent,
+    CheckListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { NotesComponent } from './pages/notes/notes.component';
     LayoutModule,
     FormsModule,
     TableModule,
+    CalendarModule,
     HttpClientModule,
     InputTextModule,
     DialogModule,
