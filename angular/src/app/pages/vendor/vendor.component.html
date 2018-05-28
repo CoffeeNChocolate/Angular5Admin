@@ -11,7 +11,7 @@
             </div>
             <div class="ibox-body" *ngIf="hasVendorDetails">
                 <div class="row row-shadow">
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">Vendor Id</div>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">Name</div>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">Type</div>
@@ -35,9 +35,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row row-shadow">
                     <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
@@ -46,6 +43,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="row row-shadow">
+
                     <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
@@ -70,11 +71,7 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="row row-shadow">
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">Addres 1</div>
@@ -82,7 +79,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                </div>
+
+                <div class="row row-shadow">
+
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">address2</div>
@@ -90,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">City</div>
@@ -98,9 +99,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row row-shadow">
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">Zip</div>
@@ -108,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
                                 <div class="p-2">registration Type</div>
@@ -116,6 +115,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row row-shadow">
+
                     <div class="col-4">
                         <div class="d-flex flex-row">
                             <div class="d-flex flex-column">
@@ -124,18 +126,21 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="row ">
                     <div class="col-4 pull-right">
                         <div class="d-flex flex-row ">
                             <div class="d-flex flex-column">
+                                <div class="p-2"></div>
+                                <div class="p-2">
+                                    <button pButton type="button" (click)="showDialog()" label="Edit" icon="fa fa-fw fa-check"></button>
+                                </div>
 
-                                <button pButton type="button" (click)="showDialog()" label="Edit" icon="fa fa-fw fa-check"></button>
                             </div>
                         </div>
 
                     </div>
+                </div>
+                <div class="row ">
+
                 </div>
             </div>
         </div>
@@ -150,8 +155,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Name</label>
-                <input type="input" class="form-control" [value]="vendorDetails.name" (ngModel)="vendorEditDetails.name" name="name"
-                    placeholder="Name">
+                <input type="input" class="form-control" [value]="vendorDetails.name" (ngModel)="vendorEditDetails.name" name="name" placeholder="Name">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Type</label>
