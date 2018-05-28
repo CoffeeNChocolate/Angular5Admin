@@ -17,9 +17,12 @@ import { IconsComponent } from './pages/ui/icons/icons.component';
 import { ButtonsComponent } from './pages/ui/buttons/buttons.component';
 import { TablesComponent } from './pages/tables/tables.component';
 import { VendorComponent } from './pages/vendor/vendor.component';
+import { OrderComponent } from './pages/orders/order.component';
+import { CheckListComponent } from './pages/checkList/check-list.component';
+import { NotesComponent } from './pages/notes/notes.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'index', pathMatch: 'full'},
+    { path: '', redirectTo: 'index', pathMatch: 'full' },
     {
         "path": "",
         "component": LayoutComponent,
@@ -36,12 +39,22 @@ const routes: Routes = [
                 path: "vendor",
                 component: VendorComponent
             },
-           
-           
-           
+            {
+                path: "Orders",
+                component: OrderComponent
+            },
+            {
+                path: "Check-List",
+                component: CheckListComponent
+            },
+            {
+                path: "Notes",
+                component: NotesComponent
+            },
+
         ]
     },
-    
+
     {
         "path": "**",
         "redirectTo": "error_404",
@@ -50,24 +63,24 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    ColorsComponent,
-    TypographyComponent,
-    PanelsComponent,
-    TabsComponent,
-    AlertsComponent,
-    CardsComponent,
-    BadgesProgressComponent,
-    ListComponent,
-    IconsComponent,
-    ButtonsComponent,
-   
-  ],
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ 
-    RouterModule,
-  ]
+    declarations: [
+        HomeComponent,
+        ColorsComponent,
+        TypographyComponent,
+        PanelsComponent,
+        TabsComponent,
+        AlertsComponent,
+        CardsComponent,
+        BadgesProgressComponent,
+        ListComponent,
+        IconsComponent,
+        ButtonsComponent,
+
+    ],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [
+        RouterModule,
+    ]
 })
 
 export class AppRoutingModule { }

@@ -9,7 +9,7 @@ export interface VendorInformation {
     phone: string;
     mobile: string;
     contractId: string;
-    contractDate: string;
+    contractDate: Date;
     registrationType: number,
     referDetails: string
 

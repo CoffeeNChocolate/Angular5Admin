@@ -92,15 +92,15 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail4">Id</label>
-                <input type="input" class="form-control" readonly [(ngModel)]="checkList.checklistid" name="checklistid" placeholder="Name">
+                <input type="input" class="form-control" readonly (ngModel)="checkList.checklistid" name="checklistid" placeholder="Name">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Type</label>
-                <input type="input" class="form-control" [(ngModel)]="checkList.chipsVendorId" name="chipsVendorId" placeholder="Type">
+                <input type="input" class="form-control" (ngModel)="checkList.chipsVendorId" name="chipsVendorId" placeholder="Type">
             </div>
         </div>
         <div class="form-group">
-            <button class="ui-button-success" pButton type="button" (click)="changeActive()" *ngIf="checkList.active" [(ngModel)]="checkList.active"
+            <button class="ui-button-success" pButton type="button" (click)="changeActive()" *ngIf="checkList.active" (ngModel)="checkList.active"
                 icon="fa-check" label="Active"></button>
             <button class="ui-button-warning" pButton type="button" (click)="changeActive()" *ngIf="!checkList.active" [(ngModel)]="checkList.active"
                 icon="fa-check" label="De-Active"></button>
@@ -138,3 +138,4 @@
     </p-footer>
 
 </p-dialog>
+
