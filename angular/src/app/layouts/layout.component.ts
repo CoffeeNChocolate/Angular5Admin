@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewEncapsulation } from '@angular/core';
-import {Helpers} from "../helpers";
+import { Helpers } from '../helper/helpers';
 
 @Component({
   selector: '.page-wrapper',
@@ -9,7 +9,7 @@ import {Helpers} from "../helpers";
 
 export class LayoutComponent implements AfterViewInit {
 
-	constructor() { }
+  constructor() { }
 
   ngAfterViewInit() {
 

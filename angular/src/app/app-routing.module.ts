@@ -20,6 +20,8 @@ import { VendorComponent } from './pages/vendor/vendor.component';
 import { OrderComponent } from './pages/orders/order.component';
 import { CheckListComponent } from './pages/checkList/check-list.component';
 import { NotesComponent } from './pages/notes/notes.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './helper/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -29,7 +31,7 @@ const routes: Routes = [
         "children": [
             {
                 path: "index",
-                component: HomeComponent
+                component: HomeComponent, canActivate: [AuthGuard]
             },
             {
                 path: "table",
@@ -54,6 +56,10 @@ const routes: Routes = [
 
         ]
     },
+    {
+        "path": "login",
+        "component": LoginComponent
+    },
 
     {
         "path": "**",
@@ -75,6 +81,7 @@ const routes: Routes = [
         ListComponent,
         IconsComponent,
         ButtonsComponent,
+        LoginComponent
 
     ],
     imports: [RouterModule.forRoot(routes)],

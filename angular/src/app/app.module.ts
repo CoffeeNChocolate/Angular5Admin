@@ -18,6 +18,8 @@ import { OrderComponent } from './pages/orders/order.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotesComponent } from './pages/notes/notes.component';
 import { CheckListComponent } from './pages/checkList/check-list.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './helper/auth.guard';
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import { CheckListComponent } from './pages/checkList/check-list.component';
     VendorComponent,
     OrderComponent,
     NotesComponent,
-    CheckListComponent
+    CheckListComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { CheckListComponent } from './pages/checkList/check-list.component';
     ButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [ScriptLoaderService],
+  providers: [ScriptLoaderService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
