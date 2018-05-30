@@ -24,6 +24,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './pages/registration/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertService } from './_services/alert.service';
+import { UserService } from './_services/user.service';
+import { JwtInterceptor } from './helper/jwt.interceptor';
+import { fakeBackendProvider } from './helper/fake-backend';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import { AlertService } from './_services/alert.service';
     OrderComponent,
     NotesComponent,
     CheckListComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,14 @@ import { AlertService } from './_services/alert.service';
     ButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [ScriptLoaderService, AuthGuard, AuthenticationService, AlertService],
+  providers: [ScriptLoaderService, AuthGuard, AuthenticationService, AlertService, UserService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
+  },
+
+    // provider used to create fake backend
+    fakeBackendProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

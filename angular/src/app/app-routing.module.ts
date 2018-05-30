@@ -86,7 +86,6 @@ const routes: Routes = [
         ListComponent,
         IconsComponent,
         ButtonsComponent,
-        LoginComponent
 
     ],
     imports: [RouterModule.forRoot(routes)],

@@ -9,7 +9,6 @@ declare var $: any;
 @Component({
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.css'],
-    providers: [UserService]
 })
 export class RegisterComponent implements OnInit {
 
