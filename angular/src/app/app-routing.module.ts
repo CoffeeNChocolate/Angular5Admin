@@ -22,6 +22,7 @@ import { CheckListComponent } from './pages/checkList/check-list.component';
 import { NotesComponent } from './pages/notes/notes.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './helper/auth.guard';
+import { RegisterComponent } from './pages/registration/register.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -59,6 +60,10 @@ const routes: Routes = [
     {
         "path": "login",
         "component": LoginComponent
+    },
+    {
+        "path": "register",
+        "component": RegisterComponent
     },
 
     {

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LayoutModule } from './/layouts/layout.module';
 import { ScriptLoaderService } from './_services/script-loader.service';
 import { TablesComponent } from './pages/tables/tables.component';
-import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
@@ -20,6 +19,11 @@ import { NotesComponent } from './pages/notes/notes.component';
 import { CheckListComponent } from './pages/checkList/check-list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './helper/auth.guard';
+import { AuthenticationService } from './pages/login/authentication.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RegisterComponent } from './pages/registration/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AlertService } from './_services/alert.service';
 
 
 @NgModule({
@@ -30,9 +34,11 @@ import { AuthGuard } from './helper/auth.guard';
     OrderComponent,
     NotesComponent,
     CheckListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     LayoutModule,
     FormsModule,
@@ -44,7 +50,7 @@ import { AuthGuard } from './helper/auth.guard';
     ButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [ScriptLoaderService,AuthGuard],
+  providers: [ScriptLoaderService, AuthGuard, AuthenticationService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
