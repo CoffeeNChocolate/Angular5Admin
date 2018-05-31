@@ -10,15 +10,11 @@ export class VendorService {
     constructor(private http: HttpClient) { }
 
     getVendorInformation() {
-        return this.http.get<any>('assets/data/vendor.json')
-            .toPromise()
-            //.then(res => <VendorInformation> res.vendor)
-            .then(vendor =>
-                vendor);
+        return this.http.get<any>('/api/vendor/info')
     }
 
+    
     saveVendorInformation(vendorDetails: VendorDetails): any {
-        console.log(vendorDetails);
-        return this.http.post('/API/identity/user', vendorDetails).subscribe(res => { console.log(res); return res; })
+        return this.http.post('/api/vendor/save', vendorDetails).subscribe(res => {  return res; })
     }
 }

@@ -9,7 +9,6 @@ import { VendorInformation } from "./vendor";
     providers: [VendorService]
 })
 export class VendorComponent {
-
     vendorInformation: VendorInformation;
     vendorDetails: VendorDetails;
     vendorEditDetails: VendorDetails;
@@ -20,62 +19,44 @@ export class VendorComponent {
         this.display = true;
     }
     constructor(private vendorService: VendorService) {//
-        // this.vendorEditDetails = new VendorDetails('', '', '', '', '', '', '', '', '', '', new Date(), 0, '');
-        // this.vendorDetails = new VendorDetails('', '', '', '', '', '', '', '', '', '', new Date(), 0, '');
-        this.vendorService.getVendorInformation().then(x => {
-            this.vendorEditDetails = new VendorDetails(
-
-            );
-            //this.vendorEditDetails = this.vendorDetails;
-            console.log("vednors  details", this.vendorDetails);
-        });
+        this.vendorDetails = new VendorDetails();
+        this.vendorEditDetails = new VendorDetails();
+        this.vendorEditDetails.contractDate = new Date();
     }
     ngOnInit() {
-        this.vendorService.getVendorInformation().then(x => {
-            this.vendorDetails = new VendorDetails();
-            this.assignValue(x.vendor);
-            // this.vendorDetails.vendorId = x.vendor.vendorId,
-            //     this.vendorDetails.name = x.vendor.name,
-            //     this.vendorDetails.type = x.vendor.type,
-            //     this.vendorDetails.zip = x.vendor.zip,
-            //     this.vendorDetails.city = x.vendor.city,
-            //     this.vendorDetails.address2 = x.vendor.address2,
-            //     this.vendorDetails.address1 = x.vendor.address1,
-            //     this.vendorDetails.phone = x.vendor.phone,
-            //     this.vendorDetails.mobile = x.vendor.mobile,
-            //     this.vendorDetails.contractId = x.vendor.contractId,
-            //     this.vendorDetails.contractDate = x.vendor.contractDate,
-            //     this.vendorDetails.registrationType = x.vendor.registrationType,
-            //     this.vendorDetails.referDetails = x.vendor.referDetails
-            //this.vendorEditDetails = this.vendorDetails;
-            console.log("vednors  details", this.vendorDetails);
+        this.vendorService.getVendorInformation().map(x => this.vendorDetails = x).subscribe(users => {
+            this.assignValue(users.vendorDetail)
+            this.vendorEditDetails = this.vendorDetails;
+            //this.vendorEditDetails.contractDate = new Date();
         });
+
     }
     get hasVendorDetails(): boolean {
         return (this.vendorDetails !== null) ? true : false;
     }
     saveVendorInformation(data: VendorDetails) {
         this.display = false;
-        console.log(data, this.vendorDetails);
-
         this.assignValue(data);
-        var res = this.vendorService.saveVendorInformation(data);
-        console.log(data, this.vendorDetails);
+        var res = this.vendorService.saveVendorInformation(this.vendorDetails);
         data = null;
     }
     assignValue(data: VendorDetails) {
-        var vendorDetail = JSON.parse(JSON.stringify(data));
-        this.vendorDetails.vendorId = vendorDetail.vendorId? vendorDetail.vendorId:this.vendorDetails.vendorId,
-            this.vendorDetails.name = vendorDetail.name?vendorDetail.name:this.vendorDetails.name,
-            this.vendorDetails.type = vendorDetail.type?vendorDetail.type:this.vendorDetails.type,
-            this.vendorDetails.zip = vendorDetail.zip?vendorDetail.zip:this.vendorDetails.zip,
-            this.vendorDetails.city = vendorDetail.city? vendorDetail.city:this.vendorDetails.city,
-            this.vendorDetails.address2 = vendorDetail.address2?vendorDetail.address2:this.vendorDetails.address2,
-            this.vendorDetails.address1 = vendorDetail.address1?vendorDetail.address1:this.vendorDetails.address1,
-            this.vendorDetails.phone = vendorDetail.phone?vendorDetail.phone:this.vendorDetails.phone,
-            this.vendorDetails.contractDate = vendorDetail.contractDate?vendorDetail.contractDate:this.vendorDetails.contractDate,
-            this.vendorDetails.registrationType = vendorDetail.registrationType? vendorDetail.registrationType:this.vendorDetails.registrationType ,
-            this.vendorDetails.referDetails = vendorDetail.referDetails?vendorDetail.referDetails:this.vendorDetails.referDetails
+        console.log('data', data);
+        var vendorDetail = data ? JSON.parse(JSON.stringify(data)) : this.vendorDetails;
+        this.vendorDetails.vendorId = vendorDetail.vendorId ? vendorDetail.vendorId : this.vendorDetails.vendorId,
+            this.vendorDetails.name = vendorDetail.name ? vendorDetail.name : this.vendorDetails.name,
+            this.vendorDetails.type = vendorDetail.type ? vendorDetail.type : this.vendorDetails.type,
+            this.vendorDetails.zip = vendorDetail.zip ? vendorDetail.zip : this.vendorDetails.zip,
+            this.vendorDetails.mobile = vendorDetail.mobile ? vendorDetail.mobile : this.vendorDetails.mobile,
+            this.vendorDetails.city = vendorDetail.city ? vendorDetail.city : this.vendorDetails.city,
+            this.vendorDetails.address2 = vendorDetail.address2 ? vendorDetail.address2 : this.vendorDetails.address2,
+            this.vendorDetails.address1 = vendorDetail.address1 ? vendorDetail.address1 : this.vendorDetails.address1,
+            this.vendorDetails.phone = vendorDetail.phone ? vendorDetail.phone : this.vendorDetails.phone,
+            this.vendorDetails.contractDate = vendorDetail.contractDate ? new Date(vendorDetail.contractDate) : new Date(this.vendorDetails.contractDate),
+            this.vendorDetails.registrationType = vendorDetail.registrationType ? vendorDetail.registrationType : this.vendorDetails.registrationType,
+            this.vendorDetails.referDetails = vendorDetail.referDetails ? vendorDetail.referDetails : this.vendorDetails.referDetails
+        console.log('vendorDetail', this.vendorDetails);
+
     }
 
 }
