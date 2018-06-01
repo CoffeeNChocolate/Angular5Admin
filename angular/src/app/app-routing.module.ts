@@ -16,26 +16,56 @@ import { ListComponent } from './pages/ui/list/list.component';
 import { IconsComponent } from './pages/ui/icons/icons.component';
 import { ButtonsComponent } from './pages/ui/buttons/buttons.component';
 import { TablesComponent } from './pages/tables/tables.component';
+import { VendorComponent } from './pages/vendor/vendor.component';
+import { OrderComponent } from './pages/orders/order.component';
+import { CheckListComponent } from './pages/checkList/check-list.component';
+import { NotesComponent } from './pages/notes/notes.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './helper/auth.guard';
+import { RegisterComponent } from './pages/registration/register.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'index', pathMatch: 'full'},
+    { path: '', redirectTo: 'index', pathMatch: 'full' },
     {
         "path": "",
         "component": LayoutComponent,
         "children": [
             {
                 path: "index",
-                component: HomeComponent
+                component: HomeComponent, canActivate: [AuthGuard]
             },
             {
                 path: "table",
                 component: TablesComponent
             },
-           
-           
+            {
+                path: "vendor",
+                component: VendorComponent
+            },
+            {
+                path: "Orders",
+                component: OrderComponent
+            },
+            {
+                path: "Check-List",
+                component: CheckListComponent
+            },
+            {
+                path: "Notes",
+                component: NotesComponent
+            },
+
         ]
     },
-    
+    {
+        "path": "login",
+        "component": LoginComponent
+    },
+    {
+        "path": "register",
+        "component": RegisterComponent
+    },
+
     {
         "path": "**",
         "redirectTo": "error_404",
@@ -44,24 +74,24 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    ColorsComponent,
-    TypographyComponent,
-    PanelsComponent,
-    TabsComponent,
-    AlertsComponent,
-    CardsComponent,
-    BadgesProgressComponent,
-    ListComponent,
-    IconsComponent,
-    ButtonsComponent,
-   
-  ],
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ 
-    RouterModule,
-  ]
+    declarations: [
+        HomeComponent,
+        ColorsComponent,
+        TypographyComponent,
+        PanelsComponent,
+        TabsComponent,
+        AlertsComponent,
+        CardsComponent,
+        BadgesProgressComponent,
+        ListComponent,
+        IconsComponent,
+        ButtonsComponent,
+
+    ],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [
+        RouterModule,
+    ]
 })
 
 export class AppRoutingModule { }

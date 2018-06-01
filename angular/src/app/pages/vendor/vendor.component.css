@@ -1,0 +1,14 @@
+.no-btn-border{
+    padding: 0;
+border: none;
+background: none;
+}
+.row-shadow {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+
+  row{
+      border-bottom: 2px ;
+      border-bottom-color: black;
+  }

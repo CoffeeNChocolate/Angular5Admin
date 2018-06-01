@@ -1,0 +1,141 @@
+<div>CheckList</div>
+<section id="what-we-do">
+    <div class="container-fluid">
+
+        <div class="row mb-2 border-bottom">
+            <div class="col-4">
+                <div>
+                    Id
+                </div>
+                <div>
+                    {{checkList.checklistid}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    chipsVendorId
+                </div>
+                <div>
+                    {{checkList.chipsVendorId}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    active
+                </div>
+                <div>
+                    {{checkList.active}}
+                </div>
+            </div>
+
+        </div>
+        <div class="row mb-2 border-bottom">
+            <div class="col-4">
+                <div>
+                    activeDate
+                </div>
+                <div>
+                    {{checkList.activeDate}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    billsDue
+                </div>
+                <div>
+                    {{checkList.billsDue}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    billsDueDate
+                </div>
+                <div>
+                    {{checkList.billsDueDate}}
+                </div>
+            </div>
+
+        </div>
+        <div class="row mb-1 border-bottom">
+            <div class="col-4">
+                <div>
+                    request
+                </div>
+                <div>
+                    {{checkList.request}}
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    requestdate
+                </div>
+                <div>
+                    {{checkList.requestdate}}
+                </div>
+            </div>
+        </div>
+        <div class="pull-right">
+            <span>
+                <a (click)="showDialog()">
+                    <i class="fa fa-edit"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+
+<p-dialog header="Vendor Information" [(visible)]="display">
+
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Id</label>
+                <input type="input" class="form-control" readonly (ngModel)="checkList.checklistid" name="checklistid" placeholder="Name">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Type</label>
+                <input type="input" class="form-control" (ngModel)="checkList.chipsVendorId" name="chipsVendorId" placeholder="Type">
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="ui-button-success" pButton type="button" (click)="changeActive()" *ngIf="checkList.active" (ngModel)="checkList.active"
+                icon="fa-check" label="Active"></button>
+            <button class="ui-button-warning" pButton type="button" (click)="changeActive()" *ngIf="!checkList.active" [(ngModel)]="checkList.active"
+                icon="fa-check" label="De-Active"></button>
+
+            <button class="ui-button-success" pButton type="button" (click)="changeBillsDue()" *ngIf="checkList.billsDue" [(ngModel)]="checkList.billsDue"
+                icon="fa-check" label="Bills Due"></button>
+            <button class="ui-button-warning" pButton type="button" (click)="changeBillsDue()" *ngIf="!checkList.billsDue" [(ngModel)]="checkList.billsDue"
+                icon="fa-check" label="No Bills Due"></button>
+
+            <button class="ui-button-success" pButton type="button" (click)="changeRequest()" *ngIf="checkList.request" [(ngModel)]="checkList.request"
+                icon="fa-check" label="Requested"></button>
+            <button class="ui-button-warning" pButton type="button" (click)="changeRequest()" *ngIf="!checkList.request" [(ngModel)]="checkList.request"
+                icon="fa-check" label="No Request"></button>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">activeDate</label>
+                <p-calendar [(ngModel)]="activeDate" name="activeDate" [showIcon]="true"></p-calendar>
+                <!-- <input type="input" class="form-control" [(ngModel)]="checkList.activeDate" name="activeDate" placeholder="address2"> -->
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">billsDueDate</label>
+                <p-calendar [(ngModel)]="billsDueDate" name="billsDueDate" [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputEmail4">requestdate</label>
+            <p-calendar [(ngModel)]="resquestedDate" name="requestdate" [showIcon]="true"></p-calendar>
+        </div>
+
+    </form>
+    <p-footer>
+        <button type="button" pButton icon="fa-check" (click)="saveChecklistInformation(checkList)" label="Yes"></button>
+        <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+    </p-footer>
+
+</p-dialog>
+
